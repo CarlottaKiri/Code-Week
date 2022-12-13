@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(14, 20, 36);
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+}
+
+hr {
+  margin: 10px 20px 20px 20px;
+  border-radius: 50%;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* --NAVBAR-- */
+.navbar {
+  position: relative;
+  width: 100%;
+}
+
+.logo {
+  width: 250px;
+}
+
+.menu-drop-down {
+  text-align: center;
+  width: 150px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  left: 60%;
+  top: 40px;
+  background-color: rgb(14, 20, 36);
+  list-style: none;
+  overflow: hidden;
+  text-align: center;
+  z-index: 4;
+}
+
+.menu-drop-down li a {
+  display: block;
+  color: #b9b9b9;
+  text-decoration: none;
+  padding-bottom: 20px; /* Larger touch target area */
+}
+
+.menu-drop-down a:hover,
+.menu-drop-down a:active {
+  color: rgb(163, 104, 218);
+}
+
+.menu-drop-down.closed {
+  height: 20px;
+}
+.searchbar {
+  background: none;
+  color: #b9b9b9;
+  text-align: center;
+  width: 100px;
+  padding: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #d2cfcf;
+  border-radius: 10px;
+}
+
+.hero {
+  padding: 20px;
+  position: relative;
+}
+
+.hero-h1 {
+  color: rgb(163, 104, 218);
+  font-size: 26px;
+  margin: 0px 20px 10px 20px;
+}
+
+.container {
+  position: relative;
+}
+
+.hero-serie-img {
+  width: 100%;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.601);
+}
+
+.overlay {
+  position: absolute;
+  border-radius: 10px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background: black;
+  cursor: pointer;
+}
+
+.content {
+  font-size: 14px;
+  color: rgb(163, 104, 218);
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+}
+
+.bookmark-img {
+  color: white;
+  width: 30px;
+  top: 0;
+}
+
+.bookmark-img:hover {
+  cursor: pointer;
+}
+
+.description {
+  max-height: 150px;
+  overflow-y: scroll;
+}
+button {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.hero:hover .overlay,
+.hero:active .overlay {
+  opacity: 0.9;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ScaraFlix - Your Home Cinema</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <img src="../img/logo-light.png" alt="ScaraFlix logo" class="logo" />
+        <ul class="menu-drop-down closed">
+          <li><a href="#" class="menu-button"> &nbsp;&nbsp;Menu ▼ </a></li>
+          <input class="searchbar" type="text" placeholder="Search..." />
+          <li><a href="#">New</a></li>
+          <li>
+            <a href="#"
+              >Choose <br />
+              Category</a
+            >
+          </li>
+          <li><a href="#">Credits</a></li>
+        </ul>
+      </nav>
+      <h1 class="hero-h1">Most Viewed:</h1>
+      <hr />
+      <div class="hero"></div>
+    </header>
+
+    <main class="main">
+      <div class="filters">
+        <select name="Genres" id="genres" class="genres-select">
+          <option value="All">All</option>
+        </select>
+      </div>
+    </main>
+
+    <script type="module" src="../js/script.js"></script>
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/utils.js"></script>
+  </body>
+</html>
