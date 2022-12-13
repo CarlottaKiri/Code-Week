@@ -52,12 +52,33 @@ GET(
   genresFilter(res.genres);
 });
 
-for (let id = 1; id <= 150; id++) {
-  const url = `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US`;
-  promises.push(fetch(url).then((res) => res.json()));
-}
-Promise.all(promises).then((results) => {
-  results.map((serie) => {});
-});
+// TV SERIES CARDS
+let loaded = 1;
+
+const loadSeries = () => {
+  const loadingEl = document.querySelector(".loading");
+
+  const promises = [];
+  for (let i = loaded; i <= loaded + 49; i++) {
+    const url = `https://api.themoviedb.org/3/tv/${i}?api_key=${API_KEY}&language=en-US`;
+    promises.push(fetch(url).then((res) => res.json()));
+  }
+  loaded += 50;
+
+  Promise.all(promises).then((results) => {
+    results.map((serie) => {
+      createSerie(
+        serie.poster_path,
+        serie.name,
+        serie.first_air_date,
+        serie.vote_average,
+        serie.overview,
+        serie.id
+      );
+    });
+  });
+};
+
+loadSeries();
 
 export { GET, POST, DELETE, PATCH };

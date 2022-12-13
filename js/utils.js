@@ -13,7 +13,7 @@ const createHero = (poster, name, date, vote, description) => {
   />
   <div class="overlay">
     <div class="content">
-      <button class="bookmark">
+      <button class="hero-bookmark">
         <img
           class="bookmark-img"
           src="../img/bookmark.png"
@@ -33,7 +33,7 @@ const createHero = (poster, name, date, vote, description) => {
 
   hero.innerHTML = heroContent;
 
-  const bookmark = document.querySelector(".bookmark");
+  const bookmark = document.querySelector(".hero-bookmark");
 
   let bookmarked = false;
 
@@ -58,6 +58,53 @@ const genresFilter = (genres) => {
   select.innerHTML += options;
 };
 
-function createSerie(serie) {}
+const createSerie = (poster, name, date, vote, description, id) => {
+  const cardsContent = `
+  <div id="${id}">
+  <div class="container">
+    <img
+    class="card-serie-img"
+    src="${BASE_URL_IMG + poster}"
+    alt="poster"
+  />
+  <div class="overlay">
+    <div class="content">
+      <button class="bookmark">
+        <img
+          class="bookmark-img"
+          src="../img/bookmark.png"
+          alt="bookmark"
+        />
+      </button>
+      <h2 class="title">${name}</h2>
+      <h4 class = "date">${date} </h4>
+      <p class="vote">${vote}</p>
+      <p class="description">
+        ${description}
+      </p>
+    </div>
+    </div>
+  </div>
+  </div>`;
+  const cardContainer = q(".serie-cards");
+
+  cardContainer.innerHTML += cardsContent;
+
+  const card = document.getElementById(id);
+
+  const bookmark = card.querySelectorAll("button.bookmark")[0];
+
+  let bookmarked = false;
+
+  bookmark.addEventListener("click", (e) => {
+    if (bookmarked) {
+      bookmark.querySelectorAll("img")[0].src = "../img/bookmark.png";
+      bookmarked = false;
+    } else {
+      bookmark.querySelectorAll("img")[0].src = "../img/bookmark-save.png";
+      bookmarked = true;
+    }
+  });
+};
 
 export { createHero, createSerie, genresFilter };
