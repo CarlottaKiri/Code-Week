@@ -66,6 +66,10 @@ const loadSeries = () => {
   loaded += 50;
 
   Promise.all(promises).then((results) => {
+    results = results.filter((serie) => {
+      return serie.id && serie.poster_path;
+    });
+
     results.map((serie) => {
       createSerie(
         serie.poster_path,

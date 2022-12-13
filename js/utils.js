@@ -60,8 +60,8 @@ const genresFilter = (genres) => {
 
 const createSerie = (poster, name, date, vote, description, id) => {
   const cardsContent = `
-  <div id="${id}">
-  <div class="container">
+  <div class="card-container" id="${id}">
+  
     <img
     class="card-serie-img"
     src="${BASE_URL_IMG + poster}"
@@ -84,7 +84,7 @@ const createSerie = (poster, name, date, vote, description, id) => {
       </p>
     </div>
     </div>
-  </div>
+  
   </div>`;
   const cardContainer = q(".serie-cards");
 

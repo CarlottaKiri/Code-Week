@@ -139,3 +139,23 @@ button {
 .hero:active .overlay {
   opacity: 0.9;
 }
+
+.card-serie-img {
+  width: 100%;
+}
+
+.serie-cards {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.serie-cards div {
+  display: flex;
+  width: 40%;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
