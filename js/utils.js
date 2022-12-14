@@ -54,7 +54,7 @@ const genresFilter = (genres) => {
 
   let options = "";
   genres.forEach((genre) => {
-    options += `<option value="${genre.name}">${genre.name}</option>`;
+    options += `<option class="option" value="${genre.name}">${genre.name}</option>`;
   });
   select.innerHTML += options;
 };
@@ -73,7 +73,7 @@ const rateShow = () => {
         stars += "☆";
       }
     }
-    options += `<option value="${rate}">${stars}</option>`;
+    options += `<option class="option" value="${rate}">${stars}</option>`;
   });
   rates.innerHTML += options;
 };

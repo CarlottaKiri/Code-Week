@@ -73,12 +73,18 @@
 
     <main class="main">
       <div class="filters">
-        <select name="Genres" id="genres" class="genres-select">
-          <option value="All">All</option>
-        </select>
-        <select name="Rate" id="rate" class="rate-select">
-          <option value="All">All</option>
-        </select>
+        <div class="genre-filter-container">
+          <h5>Filter by genre</h5>
+          <select name="Genres" id="genres" class="genres-select">
+            <option class="option" value="All">All</option>
+          </select>
+        </div>
+        <div class="rate-filter-container">
+          <h5>Filter by rate</h5>
+          <select name="Rate" id="rate" class="rate-select">
+            <option class="option" value="All">All</option>
+          </select>
+        </div>
       </div>
 
       <div class="serie-cards"></div>
