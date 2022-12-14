@@ -59,6 +59,26 @@ const genresFilter = (genres) => {
   select.innerHTML += options;
 };
 
+const rateShow = () => {
+  const rates = q(".rate-select");
+  const rateArray = [1, 2, 3, 4, 5];
+  let options = "";
+
+  rateArray.forEach((rate) => {
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+      if (rate >= i) {
+        stars += "★";
+      } else {
+        stars += "☆";
+      }
+    }
+    options += `<option value="${rate}">${stars}</option>`;
+  });
+  rates.innerHTML += options;
+};
+rateShow();
+
 const createSerie = (poster, name, date, vote, description, id) => {
   const cardsContent = `
   <div class="card-container" id="${id}">

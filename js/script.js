@@ -7,8 +7,11 @@ hamburger.addEventListener("click", () => {
 });
 
 document.querySelector(".show-login").addEventListener("click", function () {
-  document.querySelector(".popup").classList.add("active");
+  document.querySelector(".popup").classList.toggle("active");
 });
-document.querySelector(".close-login").addEventListener("click", function () {
+document.querySelector(".close-login").addEventListener("click", close);
+document.querySelector(".sign-in").addEventListener("click", close);
+
+function close() {
   document.querySelector(".popup").classList.remove("active");
-});
+}
