@@ -1,12 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap");
 
+:root {
+  --darkblue: #0e1424;
+  --lightpurple: #975efa;
+  --darkpurple: #551a8b;
+  --lightgray: #cdcdcd;
+  --lightblue: #1a2542;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(14, 20, 36);
+  box-sizing: border-box;
+  background-color: var(--darkblue);
   font-family: "Montserrat", sans-serif;
   height: 100%;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.2);
 }
 
 hr {
@@ -21,63 +35,176 @@ header {
 }
 
 /* --NAVBAR-- */
-.navbar {
-  position: relative;
-  width: 100%;
-}
-
 .logo {
-  width: 250px;
+  width: 220px;
+  margin-left: -20px;
 }
 
-.menu-drop-down {
-  text-align: center;
-  width: 150px;
-  padding: 0;
-  margin: 0;
+.navbar {
+  margin-top: -15px;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-around;
+  gap: 50px;
+}
+
+.navbar-icons {
+  padding-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu {
   position: absolute;
-  left: 60%;
-  top: 40px;
-  background-color: rgb(14, 20, 36);
-  list-style: none;
-  overflow: hidden;
+  padding: 10px 0px 10px 0px;
+  margin: 0;
+
+  left: -100%;
+  top: 90px;
+  gap: 0;
+  flex-direction: column;
+  background-color: var(--darkblue);
+  width: 100%;
   text-align: center;
-  z-index: 4;
+  transition: 0.3s;
 }
 
-.menu-drop-down li a {
-  display: block;
-  color: #b9b9b9;
+.nav-menu.active {
+  left: 0;
+  z-index: 3;
+}
+
+.nav-item {
+  list-style: none;
+  margin: 16px 0;
+}
+
+.nav-link {
+  text-align: center;
   text-decoration: none;
-  padding-bottom: 20px; /* Larger touch target area */
+  transition: 0.7s ease;
 }
 
-.menu-drop-down a:hover,
-.menu-drop-down a:active {
-  color: rgb(163, 104, 218);
+.nav-link:hover {
+  color: var(--lightpurple);
 }
 
-.menu-drop-down.closed {
-  height: 20px;
-}
 .searchbar {
   background: none;
-  color: #b9b9b9;
-  text-align: center;
-  width: 100px;
-  padding: 8px;
-  margin-bottom: 20px;
-  border: 1px solid #d2cfcf;
+  border: 1px solid var(--lightpurple);
   border-radius: 10px;
+  padding: 5px;
+  text-align: center;
+  color: var(--lightgray);
 }
 
+.hamburger {
+  display: block;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--lightpurple);
+}
+
+/* --LOGIN POPUP--*/
+.show-login img {
+  padding-top: 5px;
+  width: 40px;
+}
+
+.popup {
+  position: absolute;
+  top: -150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9000;
+  width: 250px;
+  padding: 20px 30px;
+  background: var(--lightblue);
+  box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.527);
+  border-radius: 10px;
+  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms,
+    transform 20ms ease-in-out 0ms;
+}
+
+.popup.active {
+  top: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
+    transform 20ms ease-in-out 0ms;
+}
+
+.close-login {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.close-login img {
+  width: 35px;
+}
+
+.form {
+  color: var(--lightgray);
+}
+
+.form h2 {
+  text-align: center;
+
+  font-size: 26px;
+}
+
+.form-element {
+  margin: 15px 0px;
+}
+.form-element label {
+  font-size: 14px;
+}
+
+.form-element input[type="text"],
+.form-element input[type="password"] {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 5px 0px;
+  border-radius: 5px;
+}
+
+.form-element button {
+  color: var(--lightgray);
+
+  width: 100%;
+
+  padding: 5px;
+  border: 1px solid var(--lightgray);
+  border-radius: 5px;
+}
+
+.form-element a {
+  color: var(--lightpurple);
+  display: block;
+  text-decoration: none;
+  text-align: right;
+}
+
+/* --HERO--*/
 .hero {
   padding: 20px;
   position: relative;
 }
 
 .hero-h1 {
-  color: rgb(163, 104, 218);
+  color: var(--lightpurple);
   font-size: 26px;
   margin: 0px 20px 10px 20px;
 }
@@ -108,7 +235,7 @@ header {
 
 .content {
   font-size: 14px;
-  color: rgb(163, 104, 218);
+  color: var(--lightpurple);
   position: absolute;
   top: 60%;
   left: 40%;
@@ -142,6 +269,7 @@ button {
 
 .card-serie-img {
   width: 100%;
+  border-radius: 10px;
 }
 
 .serie-cards {
@@ -153,9 +281,44 @@ button {
 }
 .serie-cards div {
   display: flex;
-  width: 40%;
 
   justify-content: center;
 
   flex-wrap: wrap;
+}
+
+.card-container {
+  position: relative;
+}
+
+.card-container-overlay {
+  position: absolute;
+  border-radius: 10px;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  background: black;
+  cursor: pointer;
+}
+
+.card-container-content {
+  font-size: 12px;
+  color: var(--lightpurple);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.card-container:hover .card-container-overlay,
+.card-container:active .card-container-overlay {
+  opacity: 0.9;
 }

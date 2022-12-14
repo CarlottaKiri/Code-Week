@@ -8,22 +8,64 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <header>
-      <nav class="navbar">
-        <img src="../img/logo-light.png" alt="ScaraFlix logo" class="logo" />
-        <ul class="menu-drop-down closed">
-          <li><a href="#" class="menu-button"> &nbsp;&nbsp;Menu ▼ </a></li>
+    <nav class="navbar">
+      <img src="../img/logo-lights.png" alt="ScaraFlix logo" class="logo" />
+      <div class="navbar-icons">
+        <ul class="nav-menu">
           <input class="searchbar" type="text" placeholder="Search..." />
-          <li><a href="#">New</a></li>
-          <li>
-            <a href="#"
-              >Choose <br />
-              Category</a
-            >
-          </li>
-          <li><a href="#">Credits</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Filters</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Credits</a></li>
         </ul>
-      </nav>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <button class="show-login">
+          <img src="../img/login-icon.png" alt="" />
+        </button>
+      </div>
+      <div class="popup">
+        <button class="close-login">
+          <img src="../img/close-btn.png" alt="X" />
+        </button>
+        <div class="form">
+          <h2>Log In</h2>
+
+          <div class="form-element">
+            <label for="email" required>E-mail</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Enter E-mail"
+            />
+          </div>
+          <div class="form-element">
+            <label for="password" required>Password</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Enter Password"
+            />
+          </div>
+
+          <div class="form-element">
+            <input type="checkbox" name="remember-me" id="remember-me" />
+            <label for="remember-me">Remember me</label>
+          </div>
+          <div class="form-element">
+            <button>Sign In</button>
+          </div>
+          <div class="form-element">
+            <a href="#">Forgot email/password?</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header>
       <h1 class="hero-h1">Most Viewed:</h1>
       <hr />
       <div class="hero"></div>

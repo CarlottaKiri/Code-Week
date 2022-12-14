@@ -1,14 +1,15 @@
 const c = (el) => document.createElement(el);
 const q = (el) => document.querySelector(el);
 
-const BASE_URL_IMG = "https://image.tmdb.org/t/p/w500";
+const BASE_URL_HERO = "https://image.tmdb.org/t/p/w500";
+const BASE_URL_CARD = "https://image.tmdb.org/t/p/w200";
 
 const createHero = (poster, name, date, vote, description) => {
   const heroContent = `
   <div class="container">
     <img
     class="hero-serie-img"
-    src="${BASE_URL_IMG + poster}"
+    src="${BASE_URL_HERO + poster}"
     alt="poster"
   />
   <div class="overlay">
@@ -64,11 +65,11 @@ const createSerie = (poster, name, date, vote, description, id) => {
   
     <img
     class="card-serie-img"
-    src="${BASE_URL_IMG + poster}"
+    src="${BASE_URL_CARD + poster}"
     alt="poster"
   />
-  <div class="overlay">
-    <div class="content">
+  <div class="card-container-overlay">
+    <div class="card-container-content">
       <button class="bookmark">
         <img
           class="bookmark-img"
@@ -79,9 +80,7 @@ const createSerie = (poster, name, date, vote, description, id) => {
       <h2 class="title">${name}</h2>
       <h4 class = "date">${date} </h4>
       <p class="vote">${vote}</p>
-      <p class="description">
-        ${description}
-      </p>
+      <p> More Info </p>
     </div>
     </div>
   
