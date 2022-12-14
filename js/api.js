@@ -54,10 +54,12 @@ GET(
 
 // TV SERIES CARDS
 let loaded = 1;
+const loadButton = document.querySelector(".load-button");
 
 const loadSeries = () => {
-  const loadingEl = document.querySelector(".loading");
-
+  const loadButton = document.querySelector(".load-button");
+  loadButton.textContent = "Loading...";
+  loadButton.disabled = true;
   const promises = [];
   for (let i = loaded; i <= loaded + 49; i++) {
     const url = `https://api.themoviedb.org/3/tv/${i}?api_key=${API_KEY}&language=en-US`;
@@ -65,24 +67,33 @@ const loadSeries = () => {
   }
   loaded += 50;
 
-  Promise.all(promises).then((results) => {
-    results = results.filter((serie) => {
-      return serie.id && serie.poster_path;
-    });
+  Promise.all(promises)
+    .then((results) => {
+      results = results.filter((serie) => {
+        return serie.id && serie.poster_path;
+      });
 
-    results.map((serie) => {
-      createSerie(
-        serie.poster_path,
-        serie.name,
-        serie.first_air_date,
-        serie.vote_average,
-        serie.overview,
-        serie.id
-      );
+      results.map((serie) => {
+        createSerie(
+          serie.poster_path,
+          serie.name,
+          serie.first_air_date,
+          serie.vote_average,
+          serie.overview,
+          serie.id
+        );
+      });
+    })
+    .finally(() => {
+      loadButton.textContent = "Load More";
+      loadButton.disabled = false;
     });
-  });
 };
 
 loadSeries();
+
+loadButton.addEventListener("click", (e) => {
+  loadSeries();
+});
 
 export { GET, POST, DELETE, PATCH };
