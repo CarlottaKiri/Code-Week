@@ -108,24 +108,23 @@ const createSerie = (poster, name, date, vote, description, id) => {
   </div>`;
   const cardContainer = q(".serie-cards");
 
-  cardContainer.innerHTML += cardsContent;
-  setTimeout(() => {
-    const card = document.getElementById(id);
+  cardContainer.insertAdjacentHTML("beforeend", cardsContent);
 
-    const bookmark = card.querySelectorAll("button.bookmark")[0];
+  const card = document.getElementById(id);
 
-    let bookmarked = false;
+  const bookmark = card.querySelectorAll("button.bookmark")[0];
 
-    bookmark.addEventListener("click", (e) => {
-      if (bookmarked) {
-        bookmark.querySelectorAll("img")[0].src = "../img/bookmark.png";
-        bookmarked = false;
-      } else {
-        bookmark.querySelectorAll("img")[0].src = "../img/bookmark-save.png";
-        bookmarked = true;
-      }
-    });
-  }, 0);
+  let bookmarked = false;
+
+  bookmark.addEventListener("click", (e) => {
+    if (bookmarked) {
+      bookmark.querySelectorAll("img")[0].src = "../img/bookmark.png";
+      bookmarked = false;
+    } else {
+      bookmark.querySelectorAll("img")[0].src = "../img/bookmark-save.png";
+      bookmarked = true;
+    }
+  });
 };
 
 // const cardButton = () => {

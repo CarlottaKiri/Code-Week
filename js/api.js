@@ -57,6 +57,7 @@ const loadSerieByGenre = () => {};
 // TV SERIES CARDS
 let i = 1;
 const loadButton = document.querySelector(".load-button");
+loadButton.textContent = "Loading...";
 const loadSeries = (id_genre, stars) => {
   const rateArray = [
     { vote_min: 0, vote_max: 10 },
@@ -68,7 +69,7 @@ const loadSeries = (id_genre, stars) => {
   ];
 
   let url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${i}`;
-  if ((id_genre && id_genre != "All") || (stars && stars != "All")) {
+  if ((id_genre && id_genre !== "All") || (stars && parseInt(stars) != 0)) {
     url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${id_genre}&vote_average.gte=${rateArray[stars].vote_min}&vote_average.lte=${rateArray[stars].vote_max}`;
   }
   GET(url)
