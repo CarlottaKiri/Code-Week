@@ -34,7 +34,7 @@ const PATCH = async (URL, id, body) => {
 };
 // HERO GET
 GET(
-  `https://api.themoviedb.org/3/tv/94997?api_key=${API_KEY}&language=en-US`
+  `https://api.themoviedb.org/3/tv/68129?api_key=${API_KEY}&language=en-US`
 ).then((res) => {
   createHero(
     res.poster_path,
@@ -52,23 +52,28 @@ GET(
   genresFilter(res.genres);
 });
 
+const loadSerieByGenre = () => {};
+
 // TV SERIES CARDS
-let loaded = 1;
+let i = 1;
 const loadButton = document.querySelector(".load-button");
+const loadSeries = (id_genre, stars) => {
+  const rateArray = [
+    { vote_min: 0, vote_max: 10 },
+    { vote_min: 0, vote_max: 2.4 },
+    { vote_min: 2.5, vote_max: 4.4 },
+    { vote_min: 4.5, vote_max: 6.4 },
+    { vote_min: 6.5, vote_max: 8.4 },
+    { vote_min: 8.5, vote_max: 10 },
+  ];
 
-const loadSeries = () => {
-  const loadButton = document.querySelector(".load-button");
-  loadButton.textContent = "Loading...";
-  loadButton.disabled = true;
-  const promises = [];
-  for (let i = loaded; i <= loaded + 49; i++) {
-    const url = `https://api.themoviedb.org/3/tv/${i}?api_key=${API_KEY}&language=en-US`;
-    promises.push(fetch(url).then((res) => res.json()));
+  let url = `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${i}`;
+  if ((id_genre && id_genre != "All") || (stars && stars != "All")) {
+    url = `https://api.themoviedb.org/3/discover/tv?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&page=${i}&with_genres=${id_genre}&vote_average.gte=${rateArray[stars].vote_min}&vote_average.lte=${rateArray[stars].vote_max}`;
   }
-  loaded += 50;
-
-  Promise.all(promises)
+  GET(url)
     .then((results) => {
+      results = results.results;
       results = results.filter((serie) => {
         return serie.id && serie.poster_path;
       });
@@ -89,11 +94,28 @@ const loadSeries = () => {
       loadButton.disabled = false;
     });
 };
-
 loadSeries();
 
+const cardDiv = document.querySelector(".serie-cards");
+
+const selectGenre = document.querySelector("select.genres-select");
+const selectRate = document.querySelector("select.rate-select");
+
+selectGenre.addEventListener("change", (e) => {
+  i = 1;
+  cardDiv.replaceChildren();
+  loadSeries(selectGenre.value, selectRate.value);
+});
+
+selectRate.addEventListener("change", (e) => {
+  i = 1;
+  cardDiv.replaceChildren();
+  loadSeries(selectGenre.value, selectRate.value);
+});
+
 loadButton.addEventListener("click", (e) => {
-  loadSeries();
+  i++;
+  loadSeries(selectGenre.value, selectRate.value);
 });
 
 export { GET, POST, DELETE, PATCH };

@@ -228,7 +228,7 @@ header {
 
 .overlay {
   position: absolute;
-  border-radius: 10px;
+  border-radius: 5px;
   top: 0;
   bottom: 0;
   left: 0;
@@ -315,6 +315,16 @@ button {
   font-size: 16px;
   color: var(--lightpurple);
 }
+/* --MAIN SECTION--*/
+
+.main-gallery {
+  text-align: center;
+  color: var(--darkpurple);
+  font-size: 26px;
+  margin: 20px 20px 20px 20px;
+}
+
+/* --CARD SECTION--*/
 
 .card-serie-img {
   width: 100%;
@@ -372,6 +382,10 @@ button {
 .card-container:hover .card-container-overlay,
 .card-container:active .card-container-overlay {
   opacity: 0.9;
+}
+
+.title {
+  text-align: center;
 }
 
 .load-button {
