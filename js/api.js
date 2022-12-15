@@ -16,7 +16,8 @@ GET(
     res.name,
     res.first_air_date,
     res.vote_average,
-    res.overview
+    res.overview,
+    res.id
   );
 });
 

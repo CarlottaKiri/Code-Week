@@ -13,7 +13,6 @@ const GET = async (URL) => {
 GET(
   `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
 ).then((res) => {
-  console.log(res.videos.results[0].key);
   createDetail(
     res.videos.results[0].key,
     res.name,

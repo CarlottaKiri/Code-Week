@@ -8,108 +8,110 @@
     <link rel="stylesheet" href="../css/style.css" />
   </head>
   <body>
-    <nav class="navbar">
-      <img src="../img/logo-lights.png" alt="ScaraFlix logo" class="logo" />
-      <div class="navbar-icons">
-        <ul class="nav-menu">
-          <input
-            class="searchbar"
-            type="search"
-            placeholder="Search by name..."
-          />
-          <button class="search-button">
-            <img src="../img/search-icon.png" alt="" />
+    <div class="body-container">
+      <nav class="navbar">
+        <img src="../img/logo-lights.png" alt="ScaraFlix logo" class="logo" />
+        <div class="navbar-icons">
+          <ul class="nav-menu">
+            <input
+              class="searchbar"
+              type="search"
+              placeholder="Search by name..."
+            />
+            <button class="search-button">
+              <img src="../img/search-icon.png" alt="" />
+            </button>
+            <li class="nav-item">
+              <a class="nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#filters">Filters</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#credits">Credits</a>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <button class="show-login">
+            <img src="../img/login-icon.png" alt="" />
           </button>
-          <li class="nav-item">
-            <a class="nav-link" href="#gallery">Gallery</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#filters">Filters</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#credits">Credits</a>
-          </li>
-        </ul>
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
         </div>
-        <button class="show-login">
-          <img src="../img/login-icon.png" alt="" />
-        </button>
-      </div>
-      <div class="popup">
-        <button class="close-login">
-          <img src="../img/close-btn.png" alt="X" />
-        </button>
-        <div class="form">
-          <h2>Log In</h2>
+      </nav>
+      <header>
+        <h1 class="hero-h1">Home</h1>
+        <hr />
+        <div class="hero"></div>
+      </header>
 
-          <div class="form-element">
-            <label for="email" required>E-mail</label>
-            <input
-              type="text"
-              name="email"
-              id="email"
-              placeholder="Enter E-mail"
-            />
+      <main class="main">
+        <a id="gallery"></a>
+        <h1 class="main-gallery">Gallery</h1>
+        <hr />
+        <a id="filters"></a>
+        <div class="filters">
+          <div class="genre-filter-container">
+            <h5>Filter by genre</h5>
+            <select name="Genres" id="genres" class="genres-select">
+              <option class="option" value="All">All</option>
+            </select>
           </div>
-          <div class="form-element">
-            <label for="password" required>Password</label>
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter Password"
-            />
-          </div>
-
-          <div class="form-element">
-            <input type="checkbox" name="remember-me" id="remember-me" />
-            <label for="remember-me">Remember me</label>
-          </div>
-          <div class="form-element">
-            <button class="sign-in">Sign In</button>
-          </div>
-          <div class="form-element">
-            <a href="#">Forgot email/password?</a>
+          <div class="rate-filter-container">
+            <h5>Filter by rate</h5>
+            <select name="Rate" id="rate" class="rate-select">
+              <option class="option" value="0">All</option>
+            </select>
           </div>
         </div>
-      </div>
-    </nav>
-    <header>
-      <h1 class="hero-h1">Home</h1>
-      <hr />
-      <div class="hero"></div>
-    </header>
 
-    <main class="main">
-      <a id="gallery"></a>
-      <h1 class="main-gallery">Gallery</h1>
-      <hr />
-      <a id="filters"></a>
-      <div class="filters">
-        <div class="genre-filter-container">
-          <h5>Filter by genre</h5>
-          <select name="Genres" id="genres" class="genres-select">
-            <option class="option" value="All">All</option>
-          </select>
+        <div class="serie-cards"></div>
+        <button class="load-button">Load More</button>
+      </main>
+
+      <script type="module" src="../js/script.js"></script>
+      <script type="module" src="../js/api.js"></script>
+      <script type="module" src="../js/utils.js"></script>
+    </div>
+    <div class="popup">
+      <button class="close-login">
+        <img src="../img/close-btn.png" alt="X" />
+      </button>
+      <div class="form">
+        <h2>Log In</h2>
+
+        <div class="form-element">
+          <label for="email" required>E-mail</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter E-mail"
+          />
         </div>
-        <div class="rate-filter-container">
-          <h5>Filter by rate</h5>
-          <select name="Rate" id="rate" class="rate-select">
-            <option class="option" value="0">All</option>
-          </select>
+        <div class="form-element">
+          <label for="password" required>Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+          />
+        </div>
+
+        <div class="form-element">
+          <input type="checkbox" name="remember-me" id="remember-me" />
+          <label for="remember-me">Remember me</label>
+        </div>
+        <div class="form-element">
+          <button class="sign-in">Sign In</button>
+        </div>
+        <div class="form-element">
+          <a href="#">Forgot email/password?</a>
         </div>
       </div>
-
-      <div class="serie-cards"></div>
-      <button class="load-button">Load More</button>
-    </main>
-
-    <script type="module" src="../js/script.js"></script>
-    <script type="module" src="../js/api.js"></script>
-    <script type="module" src="../js/utils.js"></script>
+    </div>
   </body>
 </html>

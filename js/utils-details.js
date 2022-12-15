@@ -17,7 +17,7 @@ const createDetail = (videos, name, date, vote, description, id) => {
   <div class="info-container">
   <hr>
     <h1 class="title">${name}</h1>
-    <h5 class="description">Plot:<br> ${description}</h5>
+    <h4 class="description">Plot:<br> ${description}</h4>
     <p>Release date:<br> ${date}</p>
     <p>Average vote:<br> ${vote}</p>
   </div>

@@ -4,7 +4,7 @@ const q = (el) => document.querySelector(el);
 const BASE_URL_HERO = "https://image.tmdb.org/t/p/w500";
 const BASE_URL_CARD = "https://image.tmdb.org/t/p/w200";
 
-const createHero = (poster, name, date, vote, description) => {
+const createHero = (poster, name, date, vote, description, id) => {
   const heroContent = `
   <div class="container">
     <img
@@ -21,12 +21,13 @@ const createHero = (poster, name, date, vote, description) => {
           alt="bookmark"
         />
       </button>
-      <h2 class="title">${name}</h2>
+      <h2 class="card-title">${name}</h2>
       <h4 class = "date">${date} </h4>
       <p class="vote">${vote}</p>
       <p class="description">
         ${description}
       </p>
+      <a href="./tv-series.html?id=68129"> More Info </a>
     </div>
     </div>
   </div>`;
