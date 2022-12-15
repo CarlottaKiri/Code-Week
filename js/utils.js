@@ -35,6 +35,7 @@ const createHero = (poster, name, date, vote, description) => {
   hero.innerHTML = heroContent;
 
   const bookmark = document.querySelector(".hero-bookmark");
+  console.log(bookmark);
 
   let bookmarked = false;
 
@@ -54,7 +55,7 @@ const genresFilter = (genres) => {
 
   let options = "";
   genres.forEach((genre) => {
-    options += `<option class="option" value="${genre.name}">${genre.name}</option>`;
+    options += `<option class="option" value="${genre.id}">${genre.name}</option>`;
   });
   select.innerHTML += options;
 };
@@ -108,22 +109,41 @@ const createSerie = (poster, name, date, vote, description, id) => {
   const cardContainer = q(".serie-cards");
 
   cardContainer.innerHTML += cardsContent;
+  setTimeout(() => {
+    const card = document.getElementById(id);
 
-  const card = document.getElementById(id);
+    const bookmark = card.querySelectorAll("button.bookmark")[0];
 
-  const bookmark = card.querySelectorAll("button.bookmark")[0];
+    let bookmarked = false;
 
-  let bookmarked = false;
-
-  bookmark.addEventListener("click", (e) => {
-    if (bookmarked) {
-      bookmark.querySelectorAll("img")[0].src = "../img/bookmark.png";
-      bookmarked = false;
-    } else {
-      bookmark.querySelectorAll("img")[0].src = "../img/bookmark-save.png";
-      bookmarked = true;
-    }
-  });
+    bookmark.addEventListener("click", (e) => {
+      if (bookmarked) {
+        bookmark.querySelectorAll("img")[0].src = "../img/bookmark.png";
+        bookmarked = false;
+      } else {
+        bookmark.querySelectorAll("img")[0].src = "../img/bookmark-save.png";
+        bookmarked = true;
+      }
+    });
+  }, 0);
 };
+
+// const cardButton = () => {
+//   const card = document.querySelector(id);
+
+//   const bookmark = card.querySelectorAll("button.bookmark")[0];
+
+//   let bookmarked = false;
+
+//   bookmark.addEventListener("click", (e) => {
+//     if (bookmarked) {
+//       bookmark.querySelectorAll("img")[0].src = "../img/bookmark.png";
+//       bookmarked = false;
+//     } else {
+//       bookmark.querySelectorAll("img")[0].src = "../img/bookmark-save.png";
+//       bookmarked = true;
+//     }
+//   });
+// };
 
 export { createHero, createSerie, genresFilter };
