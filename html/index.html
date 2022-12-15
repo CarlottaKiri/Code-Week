@@ -12,13 +12,23 @@
       <img src="../img/logo-lights.png" alt="ScaraFlix logo" class="logo" />
       <div class="navbar-icons">
         <ul class="nav-menu">
-          <input class="searchbar" type="search" placeholder="Search..." />
+          <input
+            class="searchbar"
+            type="search"
+            placeholder="Search by name..."
+          />
           <button class="search-button">
             <img src="../img/search-icon.png" alt="" />
           </button>
-          <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Filters</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Credits</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#gallery">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#filters">Filters</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#credits">Credits</a>
+          </li>
         </ul>
         <div class="hamburger">
           <span class="bar"></span>
@@ -75,8 +85,10 @@
     </header>
 
     <main class="main">
+      <a id="gallery"></a>
       <h1 class="main-gallery">Gallery</h1>
       <hr />
+      <a id="filters"></a>
       <div class="filters">
         <div class="genre-filter-container">
           <h5>Filter by genre</h5>

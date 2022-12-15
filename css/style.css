@@ -16,6 +16,7 @@ body {
   background-color: var(--darkblue);
   font-family: "Montserrat", sans-serif;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 .show-login:hover,
@@ -92,6 +93,10 @@ header {
   color: var(--lightpurple);
 }
 
+.nav-link:active {
+  color: var(--darkpurple);
+}
+
 .searchbar {
   background: none;
   border: 1px solid var(--lightpurple);
@@ -99,6 +104,16 @@ header {
   padding: 5px;
   text-align: center;
   color: var(--lightgray);
+}
+
+.search-button {
+  position: absolute;
+  left: 63%;
+  top: 8%;
+}
+
+.search-button img {
+  width: 20px;
 }
 
 .hamburger {

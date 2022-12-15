@@ -7,31 +7,6 @@ const GET = async (URL) => {
   return await res.json();
 };
 
-const POST = async (URL, body) => {
-  return await fetch(URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-};
-
-const DELETE = async (URL, id) => {
-  return await fetch(`${URL}/${id}`, {
-    method: "DELETE",
-  });
-};
-
-const PATCH = async (URL, id, body) => {
-  return await fetch(`${URL}/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-};
 // HERO GET
 GET(
   `https://api.themoviedb.org/3/tv/68129?api_key=${API_KEY}&language=en-US`
@@ -163,4 +138,4 @@ searchButton.addEventListener("click", (e) => {
     loadSeries(selectGenre.value, selectRate.value);
   }
 });
-export { GET, POST, DELETE, PATCH };
+export { GET };
