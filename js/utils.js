@@ -101,7 +101,7 @@ const createSerie = (poster, name, date, vote, description, id) => {
       <h2 class="title">${name}</h2>
       <h4 class = "date">${date} </h4>
       <p class="vote">${vote}</p>
-      <p> More Info </p>
+      <a href="./tv-series.html?id=${id}"> More Info </a>
     </div>
     </div>
   
