@@ -4,9 +4,19 @@ const q = (el) => document.querySelector(el);
 const BASE_URL_HERO = "https://image.tmdb.org/t/p/w500";
 const BASE_URL_CARD = "https://image.tmdb.org/t/p/w200";
 
-const createHero = (poster, name, date, vote, description, id) => {
+const createHero = (videos, poster, name, date, vote, description, id) => {
   const heroContent = `
   <div class="container">
+  <div class="video-container"><iframe
+    class="video"
+    width="1792"
+   height="700"
+     src="https://www.youtube.com/embed/${videos}"
+   title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+   allowfullscreen
+   ></iframe></div> 
     <img
     class="hero-serie-img"
     src="${BASE_URL_HERO + poster}"

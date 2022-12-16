@@ -8,10 +8,13 @@ const GET = async (URL) => {
 };
 
 // HERO GET
+let hero = {};
 GET(
-  `https://api.themoviedb.org/3/tv/68129?api_key=${API_KEY}&language=en-US`
+  `https://api.themoviedb.org/3/tv/68129?api_key=${API_KEY}&language=en-US&append_to_response=videos`
 ).then((res) => {
+  hero = res;
   createHero(
+    res.videos.results[1].key,
     res.poster_path,
     res.name,
     res.first_air_date,
@@ -20,6 +23,40 @@ GET(
     res.id
   );
 });
+
+// let imageHero = "";
+// const medium = window.matchMedia("(min-width: 992px)");
+// medium.addListener(mediaQuery);
+
+// function mediaQuery(x) {
+//   if (imageHero == "") {
+//     imageHero = document.querySelector(".hero-serie-img").outerHTML;
+//   }
+
+//   const container = document.querySelector(".container");
+//   const image = document.querySelector(".hero-serie-img");
+//   const videoHero = `<iframe
+//   class="video"
+//   width="800"
+//   height="400"
+//   src="https://www.youtube.com/embed/${hero.videos.results[1].key}"
+//   title="YouTube video player"
+//   frameborder="0"
+//   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+//   allowfullscreen
+// ></iframe>`;
+//   if (x.matches) {
+//     container.insertAdjacentHTML("beforeend", videoHero);
+
+//     container.removeChild(image);
+//     console.log(x.matches);
+//   } else {
+//     const video = document.querySelector("iframe");
+//     container.insertAdjacentHTML("beforeend", imageHero);
+//     container.removeChild(video);
+//     console.log(x.matches);
+//   }
+// }
 
 //GENRES GET
 GET(

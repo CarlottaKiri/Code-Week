@@ -58,7 +58,7 @@ hr {
 }
 
 .navbar {
-  margin-top: -15px;
+  margin: 20px;
   display: flex;
 
   align-items: center;

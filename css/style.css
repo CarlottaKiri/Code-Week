@@ -21,9 +21,11 @@ body {
 
 .body-container-active {
   filter: blur(20px);
+  pointer-events: none;
 }
 
 hr {
+  min-width: 335px;
   margin: 10px 20px 20px 20px;
   border-radius: 50%;
 }
@@ -52,22 +54,41 @@ header {
 }
 
 /* --NAVBAR-- */
-.logo {
-  width: 220px;
+.logo-container {
+  display: flex;
+  align-items: center;
   margin-left: -20px;
 }
 
-.navbar {
-  margin-top: -15px;
-  display: flex;
+.logo-icon {
+  height: 50px;
+  width: 50px;
+}
 
+.logo-h1 {
+  background-image: linear-gradient(45deg, #975efa, #cdcdcd);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  border-radius: 5px;
+}
+.desktop {
+  display: none;
+}
+.navbar {
+  margin-bottom: 20px;
+  background-color: var(--darkblue);
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 9000;
   align-items: center;
   justify-content: space-around;
-  gap: 50px;
+  gap: 40px;
 }
 
 .navbar-icons {
-  padding-top: 8px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -79,7 +100,7 @@ header {
   margin: 0;
 
   left: -100%;
-  top: 90px;
+  top: 60px;
   gap: 0;
   flex-direction: column;
   background-color: var(--darkblue);
@@ -166,6 +187,7 @@ header {
 }
 
 .popup.active {
+  position: fixed;
   top: 50%;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
@@ -203,6 +225,9 @@ header {
 .form-element input[type="text"],
 .form-element input[type="password"] {
   display: block;
+  background: none;
+  color: var(--lightgray);
+  border: 1px solid var(--lightpurple);
   text-align: center;
   width: 100%;
   padding: 5px 0px;
@@ -231,6 +256,10 @@ header {
 }
 
 /* --HERO--*/
+
+.video-container {
+  display: none;
+}
 .hero {
   padding: 20px;
   position: relative;
@@ -431,4 +460,150 @@ button {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+  padding: 20px 0px 20px 0px;
+  color: var(--lightgray);
+  background-color: rgb(1, 1, 6);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.links {
+  display: flex;
+  gap: 30px;
+}
+
+.social,
+.websites {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.social a,
+.websites a {
+  font-size: 14px;
+}
+.social a:hover,
+.websites a:hover {
+  color: var(--lightpurple);
+}
+
+/* --MEDIA QUERIES-- */
+@media screen and (min-width: 992px) {
+  .container img {
+    display: none;
+  }
+
+  .video-container {
+    display: flex;
+  }
+
+  .hero-h1,
+  .main-gallery {
+    font-size: 36px;
+  }
+  .hamburger {
+    display: none;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero:hover .overlay,
+  .hero:active .overlay {
+    display: none;
+  }
+
+  .desktop {
+    width: 60%;
+    display: block;
+  }
+  .desktop-menu {
+    list-style: none;
+    margin-top: 20px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .navbar {
+    margin: 20px 0px 20px 0px;
+    padding-bottom: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 9000;
+    gap: 0px;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .logo-container {
+    margin-top: 10px;
+  }
+
+  .logo-h1 {
+    margin-bottom: 5px;
+  }
+
+  .desktop-searchbar-container {
+    display: flex;
+  }
+
+  .desktop-searchbar {
+    background: none;
+    border: 1px solid var(--lightpurple);
+    border-radius: 10px;
+    padding: 5px;
+    text-align: center;
+    color: var(--lightgray);
+  }
+  .desktop-searchbar-container img {
+    width: 30px;
+  }
+
+  .desktop-search-button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+  }
+
+  .show-login {
+    margin-top: 10px;
+  }
+
+  .show-login img {
+    width: 50px;
+  }
+
+  .filters h5 {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .footer-title {
+    font-size: 22px;
+  }
+
+  .social-links h5 {
+    font-size: 14px;
+  }
+
+  .social a,
+  .websites a {
+    font-size: 18px;
+  }
 }

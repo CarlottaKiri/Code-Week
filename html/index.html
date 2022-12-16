@@ -10,7 +10,37 @@
   <body>
     <div class="body-container">
       <nav class="navbar">
-        <img src="../img/logo-lights.png" alt="ScaraFlix logo" class="logo" />
+        <div class="logo-container">
+          <img
+            src="../img/logo-icon.png"
+            alt="ScaraFlix logo"
+            class="logo-icon"
+          />
+          <h1 class="logo-h1">ScaraFlix</h1>
+        </div>
+        <div class="desktop">
+          <ul class="desktop-menu">
+            <div class="desktop-searchbar-container">
+              <input
+                class="desktop-searchbar"
+                type="search"
+                placeholder="Search by name..."
+              />
+              <button class="desktop-search-button">
+                <img src="../img/search-icon.png" alt="" />
+              </button>
+            </div>
+            <li class="desktop-nav-item">
+              <a class="desktop-nav-link" href="#gallery">Gallery</a>
+            </li>
+            <li class="desktop-nav-item">
+              <a class="desktop-nav-link" href="#filters">Filters</a>
+            </li>
+            <li class="desktop-nav-item">
+              <a class="desktop-nav-link" href="#credits">Credits</a>
+            </li>
+          </ul>
+        </div>
         <div class="navbar-icons">
           <ul class="nav-menu">
             <input
@@ -71,9 +101,42 @@
         <button class="load-button">Load More</button>
       </main>
 
-      <script type="module" src="../js/script.js"></script>
-      <script type="module" src="../js/api.js"></script>
-      <script type="module" src="../js/utils.js"></script>
+      <footer>
+        <a id="credits"></a>
+        <div class="credits">
+          <h3 class="footer-title logo-h1">
+            🎞️ScaraFlix | Made with ❤️ by C.P.
+          </h3>
+          <hr />
+          <div class="social-links">
+            <div class="social-text">
+              <h5>
+                Credits & <br />
+                Socials
+              </h5>
+            </div>
+            <div class="links">
+              <div class="social">
+                <a href="https://www.instagram.com/sushirollkiri/?hl=itface"
+                  >Instagram</a
+                >
+                <a href="https://www.linkedin.com/in/carlotta-patan%C3%A8/"
+                  >LinkedIn</a
+                >
+                <a href="https://github.com/CarlottaKiri">Github</a>
+                <a href="https://mobile.twitter.com/sushirollkiri">Twitter</a>
+              </div>
+              <div class="websites">
+                <a href="">API Website</a>
+                <a href="">Edgemony</a>
+                <a href="">Icons</a>
+                <a href="">OP.GG</a>
+              </div>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </footer>
     </div>
     <div class="popup">
       <button class="close-login">
@@ -113,5 +176,8 @@
         </div>
       </div>
     </div>
+    <script type="module" src="../js/script.js"></script>
+    <script type="module" src="../js/api.js"></script>
+    <script type="module" src="../js/utils.js"></script>
   </body>
 </html>

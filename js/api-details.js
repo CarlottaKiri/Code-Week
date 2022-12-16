@@ -14,7 +14,7 @@ GET(
   `https://api.themoviedb.org/3/tv/${id}?api_key=${API_KEY}&language=en-US&append_to_response=videos`
 ).then((res) => {
   createDetail(
-    res.videos.results[0].key,
+    res.videos.results[1].key,
     res.name,
     res.first_air_date,
     res.vote_average,
