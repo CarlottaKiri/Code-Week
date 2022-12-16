@@ -67,6 +67,7 @@ header {
 
 .logo-h1 {
   background-image: linear-gradient(45deg, #975efa, #cdcdcd);
+  background-clip: text;
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -712,6 +713,7 @@ button {
       rgba(140, 68, 247, 1) 26%,
       rgba(211, 201, 254, 1) 100%
     );
+    background-clip: text;
     -webkit-background-clip: text;
     -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
