@@ -28,6 +28,10 @@ hr {
   width: 80%;
 }
 
+p {
+  text-align: center;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -75,6 +79,7 @@ hr {
   display: flex;
   align-items: center;
   margin-left: -20px;
+  margin-top: 5px;
 }
 
 .logo-icon {
@@ -92,12 +97,16 @@ hr {
 }
 
 .navbar {
-  margin: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+
   display: flex;
   position: sticky;
+  background-color: var(--darkblue);
+  z-index: 9000;
   top: 0;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 50px;
 }
 
@@ -117,6 +126,7 @@ hr {
 }
 
 .title {
+  text-transform: uppercase;
   color: var(--darkpurple);
 }
 
@@ -125,9 +135,78 @@ hr {
   max-width: 350px;
 }
 
+.feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.feedback h4 {
+  margin-bottom: 0;
+}
+.star-rating {
+  margin: 0;
+  display: flex;
+}
+
+.star-rating input {
+  display: none;
+}
+
+.star-rating input + label {
+  font-size: 24px;
+  color: var(--lightpurple);
+  transition: all 0.3 ease;
+}
+
+.star-rating input:checked + label ~ label {
+  color: var(--darkpurple);
+}
+.star-rating label:hover {
+  cursor: pointer;
+}
+.text {
+  display: none;
+}
+.active {
+  display: block;
+  color: var(--lightpurple);
+  font-size: 30px;
+  margin: 40px;
+}
+
+.text-area textarea {
+  background: none;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  color: var(--lightgray);
+  border-radius: 10px;
+  resize: none;
+  margin: 0;
+}
+
+.btn-submit button {
+  font-size: 16px;
+  text-transform: uppercase;
+  color: var(--lightpurple);
+  background: none;
+  padding: 10px;
+  border: 1px solid var(--lightpurple);
+  border-radius: 10px;
+}
+
+.text {
+  font-size: 25px;
+  color: var(--lightpurple);
+}
+
 @media screen and (min-width: 992px) {
   .info-container {
     flex-direction: row;
+    align-items: flex-start;
+
     justify-content: space-evenly;
   }
   .serie-info {
@@ -142,22 +221,56 @@ hr {
     justify-content: center;
   }
 
-  .feedback .star-rating input {
+  .star-rating input {
     display: none;
   }
 
-  .star-rating label {
+  .star-rating input + label {
     font-size: 34px;
-    color: var(--lightgray);
+    color: var(--lightpurple);
     transition: all 0.3 ease;
   }
 
-  input:not(:checked),
-  input:not(:checked) ~ label:hover ~ label {
-    color: rgba(35, 35, 35, 0.822);
+  .star-rating input:checked + label ~ label {
+    color: var(--darkpurple);
+  }
+  .star-rating label:hover {
     cursor: pointer;
   }
-  input:checked ~ label {
+  .text {
+    display: none;
+  }
+  .active {
+    display: block;
+    color: var(--lightpurple);
+    font-size: 30px;
+    margin: 40px;
+  }
+
+  .text-area textarea {
+    background: none;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    font-size: 16px;
+    color: var(--lightgray);
+    border-radius: 10px;
+    resize: none;
+    margin: 0;
+  }
+
+  .btn-submit button {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--lightpurple);
+    background: none;
+    padding: 10px;
+    border: 1px solid var(--lightpurple);
+    border-radius: 10px;
+  }
+
+  .text {
+    font-size: 25px;
     color: var(--lightpurple);
   }
 }

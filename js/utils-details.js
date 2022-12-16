@@ -18,12 +18,18 @@ const createDetail = (videos, name, date, vote, description, id) => {
   
     
     <div class="serie-info">
-    <h4 class="description">Plot:<br> ${description}</h4>
-    <p>Release date:<br> ${date}</p>
-    <p>Average vote:<br> ${vote}</p>
+    <h4 class="description">Plot:   ${description}</h4>
+    <p>Release date:  ${date}</p>
+    <p>Average vote:  ${vote}</p>
     </div>
+  
+    <div class="text">Thank you!</div>
     <div class="feedback">
-    <div class="star-rating">
+    <h4> Leave a feedback: </h4>
+    
+   
+   
+    <div class="star-rating ">
     <input type="radio" name="rate" id="rate-5">
     <label for="rate-5"> ★</label>
     <input type="radio" name="rate" id="rate-4">
@@ -35,12 +41,28 @@ const createDetail = (videos, name, date, vote, description, id) => {
     <input type="radio" name="rate" id="rate-1">
     <label for="rate-1">★ </label>
     </div>
+    <header></header>
+    <div class="text-area"> 
+    <textarea cols = "30"> </textarea>
+    </div>
+    <div class="btn-submit">
+    <button class="send-form" type="submit">Send</button>
+    </div>
     </div>
   </div>
 </div>`;
   const detail = document.querySelector(".details-container");
 
   detail.innerHTML = detailContent;
+
+  const btn = document.querySelector(".send-form");
+  const text = document.querySelector(".text");
+  const feedback = document.querySelector(".feedback");
+  btn.addEventListener("click", (e) => {
+    text.classList.add("active");
+    text.classList.remove("text");
+    feedback.classList.add("text");
+  });
 };
 
 export { createDetail };
