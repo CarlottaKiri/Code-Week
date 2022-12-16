@@ -11,7 +11,7 @@ const createHero = (videos, poster, name, date, vote, description, id) => {
   <a href="./tv-series.html?id=68129" class="hero-redirect"> More Info </a>
   <div class="video-container"><iframe
     class="video"
-    width="1000"
+    width="1480"
    height="700"
      src="https://www.youtube.com/embed/${videos}"
    title="YouTube video player"

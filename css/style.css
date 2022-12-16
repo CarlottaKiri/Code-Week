@@ -488,9 +488,13 @@ button {
   transform: translate(-50%, -50%);
 }
 
+.load-button:hover {
+  cursor: pointer;
+}
+
 .credits {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
   margin-top: 150px;
   padding: 20px 0px 20px 0px;
@@ -498,6 +502,12 @@ button {
   background-color: rgb(1, 1, 6);
 }
 
+.text-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 .social-links {
   display: flex;
   align-items: center;
@@ -544,7 +554,17 @@ button {
   color: var(--lightpurple);
 }
 
+.kiri {
+  width: 150px;
+}
+
+.video {
+  overflow: hidden;
+  width: 1000px;
+}
+
 /* --MEDIA QUERIES-- */
+
 @media screen and (min-width: 992px) {
   .container img {
     display: none;
