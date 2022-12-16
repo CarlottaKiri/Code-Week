@@ -11,7 +11,7 @@
 html,
 body {
   margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
   background-color: var(--darkblue);
   font-family: "Montserrat", sans-serif;
@@ -73,6 +73,7 @@ header {
   -moz-text-fill-color: transparent;
   border-radius: 5px;
 }
+
 .desktop {
   display: none;
 }
@@ -107,6 +108,24 @@ header {
   width: 100%;
   text-align: center;
   transition: 0.3s;
+  animation: 2s anim-lineUp ease-in;
+}
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
 
 .nav-menu.active {
@@ -476,8 +495,25 @@ button {
   display: flex;
   align-items: center;
   gap: 50px;
+  animation: 2s anim-lineUp ease-in;
 }
-
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
 .links {
   display: flex;
   gap: 30px;
@@ -520,8 +556,14 @@ button {
   }
   .container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 10px;
+  }
+
+  .overlay {
+    display: none;
   }
 
   .hero:hover .overlay,
@@ -541,6 +583,7 @@ button {
     align-items: center;
     justify-content: space-evenly;
   }
+
   .navbar {
     margin: 20px 0px 20px 0px;
     padding-bottom: 30px;
@@ -550,6 +593,24 @@ button {
     gap: 0px;
     align-items: center;
     justify-content: space-evenly;
+    animation: 2s anim-lineUp ease-in;
+  }
+  @keyframes anim-lineUp {
+    0% {
+      opacity: 0;
+      transform: translateY(60%);
+    }
+    20% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
   }
 
   .logo-container {
@@ -598,6 +659,10 @@ button {
     font-size: 22px;
   }
 
+  .social-links {
+    margin: 10px 0px;
+  }
+
   .social-links h5 {
     font-size: 14px;
   }
@@ -605,5 +670,13 @@ button {
   .social a,
   .websites a {
     font-size: 18px;
+  }
+
+  .hero-redirect {
+    font-size: 22px;
+  }
+
+  .hero-title {
+    color: var(--darkpurple);
   }
 }

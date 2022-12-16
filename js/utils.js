@@ -7,9 +7,11 @@ const BASE_URL_CARD = "https://image.tmdb.org/t/p/w200";
 const createHero = (videos, poster, name, date, vote, description, id) => {
   const heroContent = `
   <div class="container">
+  <h1 class="hero-title"> This Month's Special: Yuri!!! On Ice </h1>
+  <a href="./tv-series.html?id=68129" class="hero-redirect"> More Info </a>
   <div class="video-container"><iframe
     class="video"
-    width="1792"
+    width="1480"
    height="700"
      src="https://www.youtube.com/embed/${videos}"
    title="YouTube video player"

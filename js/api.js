@@ -65,10 +65,27 @@ GET(
   genresFilter(res.genres);
 });
 
-//SEARCHBAR GET
+//SEARCHBAR GET & FUNCTIONS
+const medium = window.matchMedia("(min-width: 992px)");
+medium.addListener(mediaQuery);
+let isMobile = true;
+function mediaQuery(e) {
+  if (e.matches) {
+    isMobile = false;
+  } else {
+    isMobile = true;
+  }
+}
+mediaQuery(medium);
 const searchBar = document.querySelector(".searchbar");
+const searchBarDesktop = document.querySelector(".desktop-searchbar");
 const searchBarFunction = () => {
-  const searchbar_value = searchBar.value;
+  let searchbar_value = "";
+  if (isMobile) {
+    searchbar_value = searchBar.value;
+  } else {
+    searchbar_value = searchBarDesktop.value;
+  }
   GET(
     `https://api.themoviedb.org/3/search/tv?api_key=${API_KEY}&language=en-US&page=${i}&query=${searchbar_value}`
   )
@@ -165,12 +182,24 @@ loadButton.addEventListener("click", (e) => {
 });
 
 const searchButton = document.querySelector(".search-button");
+const searchButtonDesktop = document.querySelector(".desktop-search-button");
 searchBar.addEventListener("search", (e) => {
   searchButton.click();
 });
 searchButton.addEventListener("click", (e) => {
   cardDiv.replaceChildren();
   if (searchBar.value) {
+    searchBarFunction();
+  } else {
+    loadSeries(selectGenre.value, selectRate.value);
+  }
+});
+searchBarDesktop.addEventListener("search", (e) => {
+  searchButtonDesktop.click();
+});
+searchButtonDesktop.addEventListener("click", (e) => {
+  cardDiv.replaceChildren();
+  if (searchBarDesktop.value) {
     searchBarFunction();
   } else {
     loadSeries(selectGenre.value, selectRate.value);
