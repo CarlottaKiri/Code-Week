@@ -556,7 +556,7 @@ button {
 }
 
 .kiri {
-  width: 150px;
+  display: none;
 }
 
 .video {
@@ -567,6 +567,10 @@ button {
 /* --MEDIA QUERIES-- */
 
 @media screen and (min-width: 992px) {
+  .kiri {
+    display: block;
+    width: 150px;
+  }
   .container img {
     display: none;
   }
